@@ -51,6 +51,13 @@ export class CatsComponent {
       productName: "Skubby",
       productAge: 10,
       productDescription: 'Süß, verspielt und verschmust.'
+    },
+    {
+      productImage: 'assets/images/catone.jpg',
+      productId: 5,
+      productName: "Mimi",
+      productAge: 10,
+      productDescription: 'Sie ist etwas bissig.'
     }
   ];
 }
