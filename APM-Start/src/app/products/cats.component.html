@@ -1,0 +1,21 @@
+
+  <div class="container-fluid">
+
+
+    <div class="row d-inline-flex">
+
+      <!-- Gallery Item 1 -->
+
+      <div class="card" style="width: 18rem;" *ngFor='let cat of cats'>
+        <img [class]="card-img-top" [src]="cat.productImage" [title]="cat.productName"
+             [style.width.px]="imageWidth" [style.height.px]="imageHeight"
+             [style.margin.px]="imageMargin">
+        <div class="card-body">
+          <h5 class="card-title">{{cat.productName}}</h5>
+          <p class="card-text">{{cat.productDescription}}</p>
+          <a href="#" class="btn btn-primary" (click)="showMore()">{{buttontext}}</a>
+        </div>
+      </div>
+    </div>
+
+</div>

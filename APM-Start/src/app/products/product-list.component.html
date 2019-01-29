@@ -1,14 +1,49 @@
 <div class="card">
   <div class="card-header">
-    Product List
-  </div>
-  <div class="card-body">
-    <div class="row">
-      <div class="col-md-2">Filter by:</div>
-      <div class="col-md-4"><input type="text" /></div>
-    </div>
-    <div class="row">
-      <div class="col-md-6"><h4>Filtered by: </h4></div>
-    </div>
+    {{pageTitle}}
   </div>
 </div>
+
+<div class="span10">
+  <div class="masthead">
+    <div class="navbar">
+      <div class="navbar-inner">
+        <div class="container">
+
+          <nav class="navbar navbar-expand-lg navbar navbar-light" style="background-color: #e3f2fd;">
+
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+              <ul class="navbar-nav mr-auto">
+
+                <li class="nav-item">
+                  <a class="nav-link" href="#">Katzen</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="#">Über uns</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="#">Kontakt</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="#">Spenden</a>
+                </li>
+              </ul>
+
+              <form class="form-inline my-2 my-lg-0">
+               <input type='text'
+                       [(ngModel)]='listFilter' />
+                <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+              </form>
+            </div>
+          </nav>
+        </div>
+      </div>
+    </div><!-- /.navbar -->
+  </div>
+
+  
+
+</div>
+
+
+
