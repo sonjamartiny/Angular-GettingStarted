@@ -1,63 +1,57 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { ICat } from './cat';
+import { CatService } from './cats.service';
 
 @Component({
   selector: 'pm-cats',
-  templateUrl: './cats.component.html'
+  templateUrl: './cats.component.html',
+  styleUrls: ['./cats.component.css']
 })
-export class CatsComponent {
+export class CatsComponent implements OnInit{
+  
+    
   pageTitle = 'Katzen in Not';
   buttontext: string = 'Mehr';
-  cartoneheading: string = 'Katze Luna';
-  carttwoheading: string = 'Katze Tiggy';
+ 
   imageWidth: number = 280;
   imageHeight: number = 190;
   imageMargin: number = 2;
+  //listFilter = 'search for name';
   //catonetext(): string { return 'Das ist eine süße Katze.'; };
   //cattwotext(): string { return 'Tiggy ist eine verspielte Katze.' }
   showMore(): void { alert() }
 
-  cats: any[] = [
-    {
-      productImage: 'assets/images/catone.jpg',
-      productId: 2,
-      productName: "Lucia",
-      productAge: 4,
-      productDescription: 'Das ist eine süße Katze'
-    },
-    {
-      productImage: 'assets/images/cattwo.jpg',
-      productId: 1,
-      productName: "Nemo",
-      productAge: 6,
-      productDescription: 'Das ist Katze Nemo.'
-    },
-    {
-      productImage: 'assets/images/catfive.jpg',
-      productId: 3,
-      productName: "Ted",
-      productAge: 9,
-      productDescription: 'Ted braucht ein neues Heim.'
-    },
-    {
-      productImage: 'assets/images/catfour.jpg',
-      productId: 4,
-      productName: "Pepe",
-      productAge: 2,
-      productDescription: 'Willst du Pepe aufnehmen?'
-    },
-    {
-      productImage: 'assets/images/catthree.jpg',
-      productId: 5,
-      productName: "Skubby",
-      productAge: 10,
-      productDescription: 'Süß, verspielt und verschmust.'
-    },
-    {
-      productImage: 'assets/images/catone.jpg',
-      productId: 5,
-      productName: "Mimi",
-      productAge: 10,
-      productDescription: 'Sie ist etwas bissig.'
-    }
-  ];
+  _listFilter: string;
+  get listFilter(): string {
+    return this._listFilter;
+  }
+  set listFilter(value: string) {
+    this._listFilter = value;
+    this.filteredCats = this.listFilter ? this.performFilter(this.listFilter) : this.cats;
+  }
+
+  filteredCats: ICat[];
+
+  cats: ICat[] ;
+
+  // fürs filtern notwendig
+  constructor(private catService : CatService) {
+   // this.listFilter = '';
+  }
+
+  ngOnInit(): void {
+    //console.log("ng OnInit implementiert");
+    this.cats = this.catService.getCats();
+    this.filteredCats = this.cats;
+  }
+
+  // method fürs filtern der katzen
+  performFilter(filterBy: string): ICat[] {
+    filterBy = filterBy.toLowerCase();
+    return this.cats.filter((cat: ICat) => cat.productName.toLocaleLowerCase().indexOf(filterBy) !== -1);
+  }
+
+  onNotify(message: string): void {
+    console.log('The rating was clicked')
+  }
 }

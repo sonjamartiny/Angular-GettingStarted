@@ -1,20 +1,26 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { HttpClientModule } from '@angular/common/http';
 
 import { AppComponent } from './app.component';
-import { ProductListComponent } from './products/product-list.component';
+import { NavComponent } from './shared/nav.component';
 import { CatsComponent } from './products/cats.component';
 import { FormsModule } from '@angular/forms';
+import { StarComponent } from './shared/star.component';
+
 
 @NgModule({
   declarations: [
     AppComponent,
-    ProductListComponent,
-    CatsComponent
+    NavComponent,
+    CatsComponent,
+    StarComponent,
+    
   ],
   imports: [
     BrowserModule,
-    FormsModule
+    FormsModule,
+    HttpClientModule
   ],
   bootstrap: [AppComponent]
 })
