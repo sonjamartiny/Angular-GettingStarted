@@ -16,7 +16,7 @@
     "productDescription": "Das ist Katze Nemo.",
     "productPrice": 120,
     "productStars": 3
-  },
+  }, 
   {
     "productImage": "assets/images/catfive.jpg",
     "productId": 3,

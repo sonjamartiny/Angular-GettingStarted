@@ -8,10 +8,15 @@ import { CatService } from './cats.service';
   styleUrls: ['./cats.component.css']
 })
 export class CatsComponent implements OnInit{
-  
+
+  // fürs filtern notwendig
+  constructor(private catService: CatService) {
+    // this.listFilter = '';
+  }
     
   pageTitle = 'Katzen in Not';
   buttontext: string = 'Mehr';
+  errorMessage: string;
  
   imageWidth: number = 280;
   imageHeight: number = 190;
@@ -34,15 +39,16 @@ export class CatsComponent implements OnInit{
 
   cats: ICat[] ;
 
-  // fürs filtern notwendig
-  constructor(private catService : CatService) {
-   // this.listFilter = '';
-  }
 
+
+  //hier werden Daten aus JSOn file gezogen (observable subscribed)
   ngOnInit(): void {
     //console.log("ng OnInit implementiert");
-    this.cats = this.catService.getCats();
-    this.filteredCats = this.cats;
+    this.catService.getCats().subscribe(cats => {
+        this.cats = cats;
+        this.filteredCats = this.cats;
+        },
+      error => this.errorMessage = <any>error);
   }
 
   // method fürs filtern der katzen
