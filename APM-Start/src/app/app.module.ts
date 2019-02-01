@@ -7,6 +7,7 @@ import { NavComponent } from './shared/nav.component';
 import { CatsComponent } from './products/cats.component';
 import { FormsModule } from '@angular/forms';
 import { StarComponent } from './shared/star.component';
+import { CatsDetailsComponent } from './products/cats-details.component';
 
 
 @NgModule({
@@ -15,6 +16,7 @@ import { StarComponent } from './shared/star.component';
     NavComponent,
     CatsComponent,
     StarComponent,
+    CatsDetailsComponent,
     
   ],
   imports: [
