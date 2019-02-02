@@ -1,5 +1,21 @@
-<div class="card" *ngIf="product">
-  <div class="card-header">
-    {{pageTitle + ": " + product.productName}}
-  </div>
+
+<div class="container-fluid">
+
+  <div class="row d-inline-flex">
+
+    <div class="card" *ngIf="cat">
+
+      <p class="card-text">{{pageTitle}}</p>
+      <img [class]="card-img-top" [src]="cat.productImage" [title]="cat.productName"
+           [style.width.px]="imageWidth" [style.height.px]="imageHeight"
+           [style.margin.px]="imageMargin">
+      <div class="card-body">
+        <h5 class="card-title">{{cat.productName | uppercase }}</h5>
+        <p class="card-text">{{cat.productDescription}}</p>
+        <p class="card-text">Schutzgebühr: {{cat.productPrice | currency:'EUR':'symbol':'1.2-2' }}</p>
+        <p class="card-text">Sterne:<pm-star [rating]="cat.productStars"></pm-star></p>
+      </div>
+      <input type="button" value="zurück" (click)="onBack()" />
+    </div>
+</div>
 </div>

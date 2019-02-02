@@ -18,6 +18,8 @@ export class CatService {
       + JSON.stringify(data))), catchError(this.handleError));
   }
 
+
+
   private handleError(err: HttpErrorResponse) {
     let errorMessage = "";
     if (err.error instanceof ErrorEvent) {

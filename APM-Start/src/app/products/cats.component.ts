@@ -21,10 +21,6 @@ export class CatsComponent implements OnInit{
   imageHeight: number = 190;
   imageMargin: number = 2;
 
-
-  //listFilter = 'search for name';
-  //catonetext(): string { return 'Das ist eine süße Katze.'; };
-  //cattwotext(): string { return 'Tiggy ist eine verspielte Katze.' }
   showMore(): void { alert() }
 
   _listFilter: string;
