@@ -2,7 +2,7 @@ import { Injectable } from "@angular/core";
 import { ICat } from "./cat";
 import { HttpClient, HttpErrorResponse } from "@angular/common/http";
 import { Observable, throwError } from "rxjs";
-import { catchError, tap } from "rxjs/operators";
+import { catchError, tap, map } from "rxjs/operators";
 
 @Injectable({
   providedIn: 'root'  //service is accessable from any component in application
@@ -18,7 +18,11 @@ export class CatService {
       + JSON.stringify(data))), catchError(this.handleError));
   }
 
-
+  getProduct(id: number): Observable<ICat | undefined> {
+    return this.getCats().pipe(
+      map((products: ICat[]) => products.find(p => p.productId === id))
+    );
+  }
 
   private handleError(err: HttpErrorResponse) {
     let errorMessage = "";

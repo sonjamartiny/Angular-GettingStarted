@@ -11,7 +11,7 @@ import { StarComponent } from './shared/star.component';
 import { CatsDetailsComponent } from './products/cats-details.component';
 import { WelcomeComponent } from './home/welcome.component';
 import { CatCreateComponent } from './products/cat-create.component';
-import { CatCreateGuard } from './products/cat-create.guard';
+import { ContactComponent } from './shared/contact.component';
 
 
 @NgModule({
@@ -22,7 +22,8 @@ import { CatCreateGuard } from './products/cat-create.guard';
     StarComponent,
     CatsDetailsComponent,
     WelcomeComponent,
-    CatCreateComponent
+    CatCreateComponent,
+    ContactComponent
 
   ],
   imports: [
@@ -34,6 +35,7 @@ import { CatCreateGuard } from './products/cat-create.guard';
       { path: 'cats/:id', component: CatsDetailsComponent },
       { path: 'welcome', component: WelcomeComponent },
       { path: 'createcat', component: CatCreateComponent },
+      { path: 'contact', component: ContactComponent },
       { path: '', redirectTo: 'welcome', pathMatch: 'full' },
       { path: '**', redirectTo: 'welcome', pathMatch: 'full'}
     ])

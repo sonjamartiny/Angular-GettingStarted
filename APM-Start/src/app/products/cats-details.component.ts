@@ -10,26 +10,29 @@ import { ActivatedRoute, Router } from '@angular/router';
 })
 export class CatsDetailsComponent implements OnInit {
   pageTitle: string = "Katze ";
-  cat: ICat;
+  errorMessage = '';
+  cat: ICat | undefined;
+  imageWidth: number = 280;
+  imageHeight: number = 190;
+  imageMargin: number = 2;
 
-  constructor(private route: ActivatedRoute, private router: Router) {
-    console.log(this.route.snapshot.paramMap.get('id'));
+  constructor(private route: ActivatedRoute,
+              private router: Router,
+              private catService: CatService ) {
   }
 
   ngOnInit() {
-    let id = +this.route.snapshot.paramMap.get('id'); //parametername = route configured
-    //das plus wandelt den string in eine numerische id um
-    this.pageTitle += `: ${id}`;
-    this.cat =
-      {
-        "productImage": "assets/images/catone.jpg",
-        "productId": 2,
-        "productName": "Lene",
-        "productAge": 4,
-        "productDescription": "Das ist eine süße Katze",
-        "productPrice": 120,
-        "productStars": 2
-      }
+    const param = this.route.snapshot.paramMap.get('id');
+    if (param) {
+      const id = +param;
+      this.getProduct(id);
+    }
+  }
+
+  getProduct(id: number) {
+    this.catService.getProduct(id).subscribe(
+      cat => this.cat = cat,
+      error => this.errorMessage = <any>error);
   }
 
   onBack(): void {

@@ -4,5 +4,5 @@ import { Component } from '@angular/core';
   templateUrl: './welcome.component.html'
 })
 export class WelcomeComponent {
-  public pageTitle = 'Welcome';
+  public pageTitle = 'Willkommen bei Katzen in Not Berlin e.V.';
 }
