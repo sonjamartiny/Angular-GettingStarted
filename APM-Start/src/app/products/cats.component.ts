@@ -17,10 +17,11 @@ export class CatsComponent implements OnInit{
   pageTitle = 'Katzen in Not';
   buttontext: string = 'Mehr';
   errorMessage: string;
- 
   imageWidth: number = 280;
   imageHeight: number = 190;
   imageMargin: number = 2;
+
+
   //listFilter = 'search for name';
   //catonetext(): string { return 'Das ist eine süße Katze.'; };
   //cattwotext(): string { return 'Tiggy ist eine verspielte Katze.' }
@@ -60,4 +61,6 @@ export class CatsComponent implements OnInit{
   onNotify(message: string): void {
     console.log('The rating was clicked')
   }
+
 }
+

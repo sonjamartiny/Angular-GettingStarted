@@ -1,3 +1,41 @@
 .card-title {
   color: cornflowerblue;
 }
+
+.inputform {
+  margin: 0 auto;
+  padding: 10px;
+  width: 400px;
+  
+}
+
+#inputform {
+  border-width: 1px;
+  border-style: solid;
+  border-color: #b7ddf2;
+  background: #ebf4fb;
+}
+
+  #inputform input {
+    clear: both;
+    color: cornflowerblue;
+  }
+
+  #inputform label {
+    clear: both;
+    color: cornflowerblue;
+    float: left;
+  }
+
+#inputform button {
+    clear: both;
+    color: cornflowerblue;
+    float: left;
+  }
+
+#inputform h1 {
+    clear: both;
+    color: darkgray;
+    float: left;
+    font-size: 22px;
+  }

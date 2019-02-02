@@ -8,6 +8,7 @@ import { CatsComponent } from './products/cats.component';
 import { FormsModule } from '@angular/forms';
 import { StarComponent } from './shared/star.component';
 import { CatsDetailsComponent } from './products/cats-details.component';
+import { WelcomeComponent } from './home/welcome.component';
 
 
 @NgModule({
@@ -17,6 +18,7 @@ import { CatsDetailsComponent } from './products/cats-details.component';
     CatsComponent,
     StarComponent,
     CatsDetailsComponent,
+    WelcomeComponent
     
   ],
   imports: [
