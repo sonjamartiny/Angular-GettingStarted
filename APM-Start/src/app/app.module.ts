@@ -6,39 +6,31 @@ import { RouterModule } from '@angular/router';
 import { AppComponent } from './app.component';
 import { NavComponent } from './shared/nav.component';
 import { CatsComponent } from './products/cats.component';
-import { FormsModule } from '@angular/forms';
-import { StarComponent } from './shared/star.component';
 import { CatsDetailsComponent } from './products/cats-details.component';
 import { WelcomeComponent } from './home/welcome.component';
 import { CatCreateComponent } from './products/cat-create.component';
 import { ContactComponent } from './shared/contact.component';
+import { ProductModule } from './products/product.module';
 
 
 @NgModule({
   declarations: [
     AppComponent,
     NavComponent,
-    CatsComponent,
-    StarComponent,
-    CatsDetailsComponent,
     WelcomeComponent,
-    CatCreateComponent,
     ContactComponent
 
   ],
   imports: [
     BrowserModule,
-    FormsModule,
     HttpClientModule,
     RouterModule.forRoot([
-      { path: 'cats', component: CatsComponent },
-      { path: 'cats/:id', component: CatsDetailsComponent },
       { path: 'welcome', component: WelcomeComponent },
-      { path: 'createcat', component: CatCreateComponent },
       { path: 'contact', component: ContactComponent },
       { path: '', redirectTo: 'welcome', pathMatch: 'full' },
       { path: '**', redirectTo: 'welcome', pathMatch: 'full'}
-    ])
+    ]),
+    ProductModule
   ],
   bootstrap: [AppComponent]
 })
