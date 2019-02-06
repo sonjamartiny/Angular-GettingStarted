@@ -1,3 +1,10 @@
 .nav-link {
   font-size: large;
 }
+
+h1{
+  font-size: 30px;
+  padding: 20px;
+  color: rgba(46, 94, 122, 0.658);
+  font: bolder;
+}

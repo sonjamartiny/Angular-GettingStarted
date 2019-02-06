@@ -2,44 +2,30 @@
   <div class="card-header">
     {{pageTitle}}
   </div>
-</div>
 
-<div class="span10">
-  <div class="masthead">
-    <div class="navbar">
-      <div class="navbar-inner">
-        <div class="container">
 
-          <nav class="navbar navbar-expand-lg navbar navbar-light" style="background-color: #e3f2fd;">
+<nav class="navbar navbar-inverse">
+  <div class="container-fluid">
+    <ul class="nav navbar-nav">
+        <li class="nav-item">
+            <a class="nav-link" [routerLink]="['/cats/:id']">Katzen</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" [routerLink]="['/welcome']">Über uns</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" [routerLink]="['/contact']">Kontakt</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" [routerLink]="['/contact']">Spenden</a>
+          </li>
+        </ul>
+    <ul class="nav navbar-nav navbar-right">
+      <li><a href="#"><span class="glyphicon glyphicon-user"></span>Sign Up</a></li>
+      <li><a href="#"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+    </ul>
 
-            <div class="collapse navbar-collapse" id="navbarSupportedContent">
-              <ul class="navbar-nav mr-auto">
-
-                <li class="nav-item">
-                  <a class="nav-link" [routerLink]="['/cats/:id']">Katzen</a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link" [routerLink]="['/welcome']">Über uns</a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link" [routerLink]="['/contact']">Kontakt</a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link" [routerLink]="['/contact']">Spenden</a>
-                </li>
-              </ul>
-
-             
-            </div>
-          </nav>
-        </div>
-      </div>
-    </div><!-- /.navbar -->
   </div>
-
-  
+</nav>
 
 </div>
-
-
-

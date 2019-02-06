@@ -1,13 +1,67 @@
-<div id="inputform" class="inputform">
-  <form id="form" name="form" method="post" action="index.html">
-    <h1 style="display: block;">Katze eintragen</h1>
-    <label>Name: </label><input type='text' id="name" name="name" style="display: block;">
-    <label>Alter: </label><input type='number' id="age" name="age" style="display: block;">
-    <label>Beschreibung: </label><input type='text' id="description" name="description" style="display: block;">
-    <label>Sterne: </label><input type='number' id="stars" name="stars" style="display: block;">
-    <label>Schutzgebühr: </label><input type='number' id="price" name="price" style="display: block;">
-    <label>Bild: </label><input type="image" id="image" name="image" style="display:block;" />
-    <p></p>
-    <input type="button" value="Speichern" style="display: block;" ng-click="insertdata()" />
+<div class="card">
+
+<div class="card-header">Katze anlegen:</div>
+<div class="card-body">
+
+  <form class="form-horizontal" 
+  novalidate 
+  (ngSubmit)="save(createCatForm)" 
+  #createCatForm="ngForm" 
+  method="post" action="index.html">
+
+  <div class="form-group row sm-2">
+    <label cass="col-sm-2 col-form-label" style="min-width: 200px !important; text-align: left; padding-left: 50px;" for="name">Name: </label>
+    <div class="col-sm-8">
+      <input class="form-control" style="display: block;" id="name" type="text" placeholder="Name (required)"
+      required minlength="3" [(ngModel)]=cat.productName name="name" #nameVar="ngModel"
+      [ngClass]="{'is-invalid': (nameVar.touched || nameVar.dirty) && !nameVar.valid}" />
+      <span class="invalid feedback">
+        <span *ngIf="nameVar.errors?.required">Bitte einen Namen eintragen.</span>
+      </span>
+    </div>
+  </div>
+  <div class="form-group row sm-2">
+    <label cass="col-sm-2 col-form-label" style="min-width: 200px !important; text-align: left; padding-left: 50px;" for="age">Alter: </label>
+    <div class="col-sm-8">
+      <input class="form-control" style="display: block;" id="age" type="number" placeholder="Alter (required)"
+      required minlength="1" [(ngModel)]=cat.productAge name="age" #ageVar="ngModel"
+      [ngClass]="{'is-invalid': (ageVar.touched || ageVar.dirty) && !ageVar.valid}" />
+      <span class="invalid feedback">
+        <span *ngIf="ageVar.errors?.required">Bitte ein Alter eintragen.</span>
+      </span>
+    </div>
+  </div>
+  <div class="form-group row sm-2">
+      <label cass="col-sm-2 col-form-label" style="min-width: 200px !important; text-align: left; padding-left: 50px;" for="description">Beschreibung: </label>
+      <div class="col-sm-8">
+        <input class="form-control" type="textarea" rows="5" style="display: block;" id="description"  placeholder="Beschreibung (required)"
+        required minlength="10" [(ngModel)]=cat.productDescription name="description" #descVar="ngModel"
+        [ngClass]="{'is-invalid': (descVar.touched || descVar.dirty) && !descVar.valid}" />
+        <span class="invalid feedback">
+          <span *ngIf="descVar.errors?.required">Bitte eine Beschreibung eintragen.</span>
+            <span *ngIf="descVar.errors?.minlength">Die Beschreibung muss länger als 10 Characters sein.</span>
+          </span>
+      </div>
+    </div>
+    <div class="form-group row sm-2">
+        <label cass="col-sm-2 col-form-label" style="min-width: 200px !important; text-align: left; padding-left: 50px;" for="image">Bild: </label>
+        <div class="col-sm-8">
+          <input class="form-control" style="display: block;" id="image" type="image" placeholder="Image"
+           [(ngModel)]=cat.productImage name="image" #imageVar="ngModel"
+          [ngClass]="{'is-invalid': (imageVar.touched || imageVar.dirty) && !imageVar.valid}" />
+          <span class="invalid feedback">
+            <span *ngIf="imageVar.errors?.required">Bitte ein Bild hochladen.</span>
+          </span>
+        </div>
+      </div>
+ 
+      <div class="form-group row sm-2">
+        <div class="offset-sm-2 col-sm-4">
+          <button class="btn btn-primary mr-3" type="submit" style="width: 100px"
+          [title]="createCatForm.valid ? 'Speichern' : 'Formular muss vollständig befüllt werden.'"
+          [disabled]="!createCatForm.valid">Speichern</button>
+        </div>
+      </div>
   </form>
+</div>
 </div>
